@@ -10,7 +10,7 @@
 
 <script>
 // @ is an alias to /src
-import LeftMenu from "@/views/layout/components/menu.vue";
+import LeftMenu from "@/views/layout/components/leftMenu.vue";
 import sliderNav from "@/views/layout/components/sliderNav.vue";
 export default {
   name: 'HomeView',
