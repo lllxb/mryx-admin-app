@@ -2,7 +2,7 @@
 
 import axios from '@/axios';
 export default {
-    login(params) {
+    userLogin(params) {
         return axios.post('/passport/login', params);
     }
 }

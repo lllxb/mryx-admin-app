@@ -25,12 +25,12 @@ export default {
         toggleCollapsed() {
             this.$store.dispatch('changeCollapsed');
         },
+        loginOut() {
+            this.$store.dispatch('loginOut');
+            this.$router.push({
+                name: 'login',
+            })
+        }
     },
-    loginOut() {
-        this.$store.dispatch('loginOut');
-        this.$router.push({
-            name: 'login',
-        })
-    }
 }
 </script>

@@ -9,6 +9,8 @@ export default new Vuex.Store({
     collapsed: false,
     // 存储用户信息
     user: getUserInfo(),
+    // 存储菜单的路由
+    menuRoutes: [],
   },
   getters: {
   },
@@ -26,6 +28,9 @@ export default new Vuex.Store({
         role: '',
         email: '',
       }
+    },
+    changeMenuRoutes(state, routes) {
+      state.menuRoutes = routes;
     }
   },
   actions: {
@@ -34,11 +39,14 @@ export default new Vuex.Store({
     },
     setUserInfo({ commit }, userInfo) {
       commit('setUserInfo', userInfo);
-      setCookie(userInfo);
+      setUserInfo(userInfo);
     },
     loginOut({ commit }) {
       commit('loginOut');
       removeUserInfo();
+    },
+    changeMenuRoutes({ commit }, routes) {
+      commit('changeMenuRoutes', routes);
     }
   },
   modules: {

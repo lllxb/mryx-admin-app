@@ -4,14 +4,14 @@ const instance = axios.create({
 })
 
 instance.interceptors.request.use((config) => {
-    // console.log("config", config);
+    console.log("config", config);
     return config;
 }, (error) => {
     Promise.reject(error);
 })
 
 instance.interceptors.response.use((response) => {
-    // console.log("response", response);
+    console.log("response", response);
     if (response.data.status === 'fail') {
         return Promise.reject(response.data.msg);
     } else {

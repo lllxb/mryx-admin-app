@@ -10,10 +10,10 @@
 
             <a-form-model-item :wrapper-col="{ span: 14, offset: 4 }">
                 <a-button type="primary" @click="submitForm('loginForm')">
-                    提交
+                    登录
                 </a-button>
-                <a-button style="margin-left: 10px" @click="resetForm('loginForm')">
-                    重置
+                <a-button style="margin-left: 10px" @click="registerForm('loginForm')">
+                    注册
                 </a-button>
             </a-form-model-item>
         </a-form-model>
@@ -60,8 +60,8 @@ export default {
         submitForm(formName) {
             this.$refs[formName].validate(valid => {
                 if (valid) {
-                    api.login(this.loginForm).then((res) => {
-                        // console.log(res);
+                    api.userLogin(this.loginForm).then((res) => {
+                        // console.log('登录', res);
                         this.$store.dispatch('setUserInfo', res);
                         this.$router.push({
                             name: 'home',
@@ -69,13 +69,14 @@ export default {
                     }).catch((error) => {
                         this.$message.error(error);
                     });
+                    return true;
                 } else {
                     console.log('error submit!!');
                     return false;
                 }
             });
         },
-        resetForm(formName) {
+        registerForm(formName) {
             this.$refs[formName].resetFields();
         },
     },
