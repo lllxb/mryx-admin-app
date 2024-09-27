@@ -28,7 +28,9 @@ const roleToRoute = {
 }
 
 export default function getMenuRoute(role, routes) {
-    const allowRoutesName = roleToRoute[role].map((item) => item.name);
+    const allowRoutesName = roleToRoute[role].map((item) => {
+        return item.name
+    });
     const resultRoutes = routes.filter((r) => {
         const obj = r;
         if (allowRoutesName.indexOf(r.name) !== -1) {
